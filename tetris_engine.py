@@ -291,7 +291,7 @@ class TetrisEngine:
         elif name == "hard_drop":
             ghost = self._ghost()
             drop_distance = ghost.row - self.current.row
-            self.score += drop_distance * 2   # Hard drop bonus
+            self.score += drop_distance * 2
             self.current = ghost
             self._lock()
             locked = True
@@ -315,7 +315,6 @@ class TetrisEngine:
         rotated = self.current.clone()
         rotated.rotation = (rotated.rotation + direction) % 4
 
-        # Thử vị trí gốc, rồi kick trái/phải/xuống
         kicks = [(0,0), (0,-1), (0,1), (0,-2), (0,2), (-1,0)]
         for dr, dc in kicks:
             rotated.row = self.current.row + dr
